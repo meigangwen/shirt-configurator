@@ -1,9 +1,26 @@
 import { AccumulativeShadows, RandomizedLight } from '@react-three/drei'
+import { useSnapshot } from 'valtio'
+import { state } from '@/app/store'
+import { easing } from 'maath'
+import { useRef } from 'react'
+import { useFrame } from '@react-three/fiber'
 
 export default function Backdrop() {
+    const shadowRef = useRef()
+    const snap = useSnapshot(state)
+    useFrame((state, delta) => {
+        easing.dampC(
+            shadowRef.current.getMesh().material.color,
+            snap.selectedColor,
+            0.25,
+            delta
+        )
+    })
+
     return (
         <AccumulativeShadows
             temporal
+            ref={shadowRef}
             frames = {60}
             alphaTest = {0.85}
             scale = {10}

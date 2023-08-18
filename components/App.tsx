@@ -12,8 +12,8 @@ export default function App( { position = [0, 0, 2.5], fov = 25} ) {
         <>
             <Canvas
                 shadows
-                camera={{position, fov}}
-                >
+                gl={{ preserveDrawingBuffer: true }}
+                camera={{position, fov}}>
                 <ambientLight intensity={0.75} />
                 <Environment preset="city" />
                     <CameraRig>
