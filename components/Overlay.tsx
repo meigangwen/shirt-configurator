@@ -7,16 +7,17 @@ export default function Overlay() {
     const snap = useSnapshot(state)
 
     return (
-      <div className="container">
+      <>
+      <div className="configurator">
         <header>
-          <Logo width="40" height="40" />
-          <div>
-            <AiOutlineShopping size="3em" />
-          </div>
+            <Logo width="40" height="40" />
+            <div>
+              <AiOutlineShopping size="3em" />
+            </div>
         </header>
-
         {snap.intro ? <Intro /> : <Customizer />}
       </div>
+      </>
     )
 }
 
