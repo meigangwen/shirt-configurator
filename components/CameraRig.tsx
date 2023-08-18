@@ -13,6 +13,7 @@ export default function CameraRig({ children }){
             0.25,
             delta
         )
+        console.log(state.pointer.x, state.pointer.y)
     })
 
     return (
