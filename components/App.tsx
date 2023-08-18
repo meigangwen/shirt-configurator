@@ -13,8 +13,6 @@ export default function App( { position = [0, 0, 2.5], fov = 25} ) {
             <Canvas
                 shadows
                 camera={{position, fov}}
-                //eventSource={document.getElementById('root')}
-                //eventPrefix="client"
                 >
                 <ambientLight intensity={0.75} />
                 <Environment preset="city" />
